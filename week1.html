@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src='./jquery-1.11.1.min.js'></script>
+    <style>
+        .low {
+            background-color: rebeccapurple
+        }
+        
+        .high {
+            background-color: red
+        }
+        
+        body {
+            line-height: 200%;
+            margin: auto;
+            width: 600px;
+            #max-width: 100%;
+        }
+        
+        .f {
+            border-style: solid;
+            border-color: yellow;
+            border-width: 10px;
+        }
+        
+        .fc {
+            background-color: lightyellow
+        }
+        
+        .top {
+            height: 400px
+        }
+        
+        .middle {
+            height: 200px
+        }
+        
+        .foot {
+            height: 400px
+        }
+    </style>
+
+    <script>
+        $("#imgUpload").change(function (e) {
+            for (var i = 0; i < e.target.files.length; i++) {
+                var file = e.target.files.item(i);
+                var freader = new FileReader();
+                freader.readAsDataURL(file);
+                freader.onload = function (e) {
+                    var src = e.target.result;
+                    $("#uploadhead").attr("src", src);
+                }
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <h2>Please Enter Your Details For Our Dating Website!</h2>
+    <form action="post">
+        <div class="header fc">
+            <p style="line-height:50px">
+                <fieldset class="f">
+                    <legend>
+                        <h4>Personal Information</h4></legend>
+                    <label>Your Name</label>
+                    <label>
+                        <input type=text>
+                    </label>
+                    <br>
+                    <label>Gender</label>
+                    <label>
+                        <input type="radio" name="sex" value="male">Male
+                        <input type="radio" name="sex" value="female">Female
+                    </label>
+                    <br>
+                    <label>Age</label>
+                    <label>
+                        <input type="number">
+                    </label>
+                    <br>
+                    <label>Date of Birth</label>
+                    <label>
+                        <input type=date>
+                    </label>
+                    <br>
+                    <label>Favorite Color</label>
+                    <label>
+                        <input type=color>
+                    </label>
+                    <br>
+                    <label>Country</label>
+                    <label>
+                        <select name="country">
+                            <option value="volvo">China</option>
+                            <option value="saab">USA</option>
+                            <option value="fiat" selected>Canada</option>
+                            <option value="audi">UK</option>
+                        </select>
+                    </label>
+                </fieldset>
+            </p>
+        </div>
+
+        <div class="content">
+            <p style="line-height:30px">
+                <fieldset class="f">
+                    <legend>
+                        <h4>Your Indicators</h4></legend>
+                    <label>Height</label>
+                    <label class="low">
+                        <b>short</b>
+                    </label>
+                    <input type="range">
+                    <label class="high">
+                        <b>Tall</b>
+                    </label>
+                    <br>
+                    <label>Salary</label>
+                    <label class="low">
+                        <b> low</b>
+                    </label>
+                    <input type="range">
+                    <label class="high">
+                        <b>High</b>
+                    </label>
+                </fieldset>
+            </p>
+        </div>
+
+
+        <div class="content">
+            <p style="line-height:30px">
+                <fieldset class="f">
+                    <legend>
+                        <h4>Your Contact Information</h4></legend>
+                    <label>Email</label>
+                    <input type="text">
+                    <br>
+                    <label>Module</label>
+                    <input type="text">
+                    <br>
+                    <span style="vertical-align: top">Message：</span>
+                    <textarea name="message" rows="5" cols="30" vertical-align:top;>
+                    </textarea>
+                </fieldset>
+            </p>
+        </div>
+
+        <div class="content">
+            <p style="line-height:30px">
+                <fieldset class="f">
+                    <legend>
+                        <h4>Your Photo</h4></legend>
+                    <li>
+                        <div class='am-g'>
+                            <div styel="width:100px; height:100px">
+
+                            </div>
+                            <div>
+                                <input type="file" name="imgUpload" id="imgUpload">
+                            </div>
+                        </div>
+                    </li>
+                    <form>
+                        <input type="file" name="imgUpload" id="imgUpload">
+                    </form>
+                </fieldset>
+            </p>
+        </div>
+        
+        <input type="submit">
+
+
+    </form>
+
+</body>
+
+</html>
